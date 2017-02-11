@@ -3,24 +3,16 @@
 require_once 'vendor/autoload.php';
 use GeoIp2\Database\Reader;
 
-$lookup = new Reader('data/GeoLite2-City.mmdb');
+$reader = new Reader('data/GeoLite2-City.mmdb');
 
-// The ip to lookup
-$ip = '8.8.8.8'; // Google public dns
+header("Content-Type: application/json; charset=UTF-8");
 
-// Lookup the ip in the database.
-$result = $lookup->city($ip);
+// Use the ip of google dns to lookup geo information.
+$lookup = '8.8.8.8';
 
-print($result->country->isoCode . "\n");
-print($result->country->name . "\n");
-print($result->country->names['zh-CN'] . "\n");
+// Get the result from the maxmind reader.
+$result = $reader->city($lookup);
 
-print($result->mostSpecificSubdivision->name . "\n");
-print($result->mostSpecificSubdivision->isoCode . "\n");
+echo json_encode($result);
 
-print($result->city->name . "\n");
-
-print($result->postal->code . "\n");
-
-print($result->location->latitude . "\n");
-print($result->location->longitude . "\n");
+?>
