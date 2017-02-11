@@ -1,10 +1,13 @@
-# Compiled Lua sources
-luac.out
+# Maxmind dataset
+*.mmdb
 
 # luarocks build files
 *.src.rock
 *.zip
 *.tar.gz
+
+# Composer
+*.lock
 
 # Object files
 *.o
