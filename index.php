@@ -1,18 +1,8 @@
 <?php
 
-require_once 'vendor/autoload.php';
-use GeoIp2\Database\Reader;
-
-$reader = new Reader('data/GeoLite2-City.mmdb');
+require_once __DIR__ . '/src/Bootstrap.php';
 
 header("Content-Type: application/json; charset=UTF-8");
-
-// Use the ip of google dns to lookup geo information.
-$lookup = '8.8.8.8';
-
-// Get the result from the maxmind reader.
-$result = $reader->city($lookup);
-
-echo json_encode($result);
+echo json_encode((new \GeoIp\Main)->Run());
 
 ?>
