@@ -15,7 +15,10 @@ class Main
         $urlParts = explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
         $reader = new Reader(__DIR__ . '/../data/GeoLite2-City.mmdb');
 
-        return $reader->city($this->GetIpAddressFromUrl($urlParts));
+        $ip = $this->GetIpAddressFromUrl($urlParts);
+        $result = $reader->city($ip);
+        
+        return $result;
     }
 
     /**
