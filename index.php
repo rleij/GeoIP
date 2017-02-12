@@ -28,6 +28,6 @@ echo json_encode([
         'latitude' => $result->location->latitude,
         'longitude' => $result->location->longitude
     ]
-]);
+], JSON_PRETTY_PRINT);
 
 ?>
