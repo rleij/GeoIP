@@ -1,5 +1,11 @@
 # PHP-GeoIP
-Lookup information on an ip address, using maxmind and geonames data.
+Lookup information on a visitor by it's ip address.
+
+Datasets from:
+
+- http://www.iso.org
+- http://www.geonames.org
+- http://data.okfn.org/data
 
 # Example
 http://pi.lan/geoip/8.8.8.8
@@ -24,7 +30,6 @@ http://pi.lan/geoip/8.8.8.8
         "capital": "Washington",
         "surface": 9629091,
         "population": 310232863,
-        "continent": "NA",
         "languages": [
             "en-US",
             "es-US",

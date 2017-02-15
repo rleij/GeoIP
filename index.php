@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/src/Main.php';
 require_once __DIR__ . '/src/CountryInfo.php';
+require_once __DIR__ . '/src/AirportInfo.php';
 
 $main = new \GeoIp\Main;
 $result = $main->Run();
@@ -23,7 +24,8 @@ echo json_encode([
         'accuracy' => $result->location->accuracyRadius,
         'latitude' => $result->location->latitude,
         'longitude' => $result->location->longitude
-    ]
+    ],
+    'airports' => (new \GeoIp\AirportInfo)->Get($result->country->isoCode)
 ], JSON_PRETTY_PRINT);
 
 ?>
